@@ -34,7 +34,6 @@ const App = () => {
           <Route path="/technology" element={<News setProgress={setProgress} apikey={apikey} pageSize={pageSize} country={country} category="technology" head=": Technology" articles={articles} setArticles={setArticles} />} />
         </Routes>
         <BackToTopButton />
-
       </div>
     </BrowserRouter>
   );
