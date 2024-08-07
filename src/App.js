@@ -5,14 +5,13 @@ import News from './components/News';
 import './App.css';
 import LoadingBar from 'react-top-loading-bar';
 import BackToTopButton from './components/BackToTopButton';
-import useLocalStorage from 'use-local-storage';
 
 const App = () => {
   const pageSize = 9;
   const apikey = "1149dea25d5945388fbbd876f7cbdbd1";
   const country = 'in';
   const [progress, setProgress] = useState(0);
-  const [isDark, setDark] = useLocalStorage("isDark", false);
+  const [isDark, setDark] = useState(false);
   const [articles, setArticles] = useState([]);
 
   return (
