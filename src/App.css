@@ -1,38 +1,136 @@
+/* Search bar css */
+input[type="text"] {
+  width: 160px;
+  padding: 4px 20px 4px 45px;
+  border: rgb(237, 237, 237) solid 2px;
+  font-size: 18px;
+  border-radius: 25px;
+  background-position: 2% 50%;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-image: url("./components/search.png");
+  background-color: transparent;
+  transition: 0.5s all ease-in-out;
+}
+
+input[type="text"]:focus {
+  font-size: 17px;
+  width: 300px;
+  background-color: rgb(252, 252, 252);
+}
+
+/* backToTopBtn */
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  width: 50px;
+  color: #060606;
+  border: none;
+  border-radius: 50%;
+  font-weight: bolder;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  background: rgba(253, 253, 253, 0.8);
+  transform: rotate(-90deg);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#backToTopBtn:hover {
+  background: rgba(253, 253, 253, 1);
+  color: #79bdf8;
+  transform: rotate(-90deg);
+  animation: scaleColorAnimation 0.3s ease;
+}
+
+@keyframes scaleColorAnimation {
+  0% {
+    transform: scale(1) rotate(-90deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(-90deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(-90deg);
+  }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  #backToTopBtn {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
 .App {
-  text-align: center;
+  background-color: var(--cardbody-bg);
+  transition: background-color 250ms ease-in-out;
+}
+.card-body{
+  background-color: var(--cardbody-bg);
+  color: var(--cardbody-fg);
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+.card-footer{
+  background-color: var(--cardfooter-bg);
+  color: var(--cardfooter-fg);
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+#heading{
+  padding: 60px 0 0 0;
+  color: var(--cardbody-fg);
+  transition: color 250ms ease-in-out;
+}
+.card{
+  background-color: var(--background-color);
+  transition: background-color 250ms ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Dark mode */
+.toggle-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle {
+  visibility: hidden;
+}
+.lablemove{
+  position: relative;
+}
+.toggle+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: var(--primary-text-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggle+label::before {
+  content: "";
+  height: 1em;
+  width: 2em;
+  border-radius: 1em;
+  background-color: var(--toggle-bg);
+  margin-right: 0.5em;
+  transition: background-color 250ms ease-in-out;
+}
+
+.toggle+label::after {
+  content: "";
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 1em;
+  background-color: var(--toggle-fg);
+  position: absolute;
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+  left: 0.2em;
+}
+
+.toggle:checked+label::after {
+  transform: translateX(100%);
 }
