@@ -1,12 +1,13 @@
+import React, { useContext, useState, useEffect } from 'react';
+import { AppContext } from '../App';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Toggle from './Toggle';
-import { useEffect, useState } from 'react';
 
-function NavBar(props) {
-  const { articles, setArticles, isDark, setDark } = props;
+function NavBar() {
+  const { articles, setArticles, isDark, setDark } = useContext(AppContext);
   const temp = articles;
 
   const debounce = (fn, timeout = 500) => {
@@ -18,7 +19,7 @@ function NavBar(props) {
       }, timeout);
     };
   };
-  
+
   const onChange = (e) => {
     const searchValue = e.target.value;
     console.log(searchValue);
@@ -37,7 +38,8 @@ function NavBar(props) {
 
   const handleChange = () => {
     setDark(!isDark);
-  }
+  };
+
   const [mode, setMode] = useState("dark");
 
   useEffect(() => {
@@ -69,8 +71,7 @@ function NavBar(props) {
             </NavDropdown>
           </Nav>
           <form action='' className="search-bar">
-            <input type="text"
-              placeholder="Search" onChange={debounce(onChange, 300)}></input>
+            <input type="text" placeholder="Search" onChange={debounce(onChange, 300)}></input>
           </form>
           <div className="toggle-container">
             <Toggle isChecked={isDark} handleChange={handleChange} />
