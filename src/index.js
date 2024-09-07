@@ -15,7 +15,12 @@ const router = createBrowserRouter([
       { path: '/', element: <News category="general" /> },
       { path: '/business', element: <News category="business" /> },
       { path: '/entertainment', element: <News category="entertainment" /> },
-      { path: '/general', element: <News category="general" /> },
+      {
+        path: '/general', element:
+          <ErrorBoundary>
+            <News category="general" />
+          </ErrorBoundary>
+      },
       { path: '/health', element: <News category="health" /> },
       { path: '/science', element: <News category="science" /> },
       { path: '/sports', element: <News category="sports" /> },

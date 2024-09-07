@@ -3,25 +3,28 @@ import React, { Component } from 'react';
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, errorMessage: '' };
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render shows the fallback UI.
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
-    console.error("Error caught by ErrorBoundary: ", error, errorInfo);
+    console.error("Error caught by ErrorBoundary:", error, errorInfo);
+    this.setState({ errorMessage: error.toString() });
   }
 
   render() {
     if (this.state.hasError) {
-      // Fallback UI when an error occurs
-      return <h1>Something went wrong. Please try again later.</h1>;
+      return (
+        <div style={{ textAlign: 'center', padding: '50px' }}>
+          <h1>Something went wrong.</h1>
+          <p>{this.state.errorMessage}</p>
+          <p>Please try refreshing the page or check back later.</p>
+        </div>
+      );
     }
-
     return this.props.children;
   }
 }
