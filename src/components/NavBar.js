@@ -22,7 +22,6 @@ function NavBar() {
 
   const onChange = (e) => {
     const searchValue = e.target.value;
-    console.log(searchValue);
 
     if (searchValue === "") {
       setArticles(temp);
