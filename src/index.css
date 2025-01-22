@@ -21,16 +21,15 @@ html::-webkit-scrollbar {
   --cardfooter-fg: #000000;
 
 }
-
-[data-theme='dark']{
-  --background-color: #353434;
-  --foreground-color: #4061ae;
-  --primary-text-color: #ffffff;
-  --secondary-text-color: #fff;
-  --toggle-bg: #353434;
-  --toggle-fg: #4752c9;
-  --cardbody-bg: #17202A;
-  --cardbody-fg: #f1f2f4;
-  --cardfooter-bg: #6b6c6d;
-  --cardfooter-fg: #ff0000;
+[data-theme='dark'] {
+  --background-color: #121212;
+  --foreground-color: #4e89ff;
+  --primary-text-color: #e0e0e0;
+  --secondary-text-color: #a8a8a8;
+  --toggle-bg: #1f1f1f;
+  --toggle-fg: #688eff;
+  --cardbody-bg: #424242;
+  --cardbody-fg: #cfcfcf;
+  --cardfooter-bg: #bbb9b9;
+  --cardfooter-fg: #8c8cff;
 }

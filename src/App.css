@@ -36,6 +36,7 @@ input[type="text"]:focus {
   background: rgba(253, 253, 253, 0.8);
   transform: rotate(-90deg);
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
 }
 
 #backToTopBtn:hover {

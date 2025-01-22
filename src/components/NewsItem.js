@@ -8,7 +8,7 @@ const NewsItem = (props) => {
     let { title, description, imageurl, readUrl, author, publishedAt } = props;
 
     return (
-        <Card className='card' style={{ width: '18rem', minHeight: '500px', maxHeight: 'auto', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <Card className='card' style={{ minWidth:'16rem', width:'auto', minHeight: '400px', maxHeight: 'auto', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
             <LazyLoad height={200} offset={100}>
                 <Card.Img
                     variant="top"
